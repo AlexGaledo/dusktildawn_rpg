@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0bc4ydt5bkdf"]
+
+[ext_resource type="PackedScene" uid="uid://b0smhxsmo2j0w" path="res://scenes/floor.tscn" id="1_5rgpn"]
+[ext_resource type="PackedScene" uid="uid://bw7d7r46v4uyn" path="res://scenes/furnitures.tscn" id="2_c0nl8"]
+[ext_resource type="PackedScene" uid="uid://xpgdyvnowdnr" path="res://scenes/bed.tscn" id="3_1dtnr"]
+[ext_resource type="PackedScene" uid="uid://bk3obgc25eth3" path="res://scenes/protagonist.tscn" id="4_c0nl8"]
+
+[sub_resource type="Animation" id="Animation_c0nl8"]
+resource_name = "sex"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-30, -16), Vector2(-123, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_1dtnr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-30, -16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c33a7"]
+_data = {
+&"RESET": SubResource("Animation_1dtnr"),
+&"sex": SubResource("Animation_c0nl8")
+}
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_5rgpn")]
+position = Vector2(-3, -4)
+
+[node name="furnitures" parent="." instance=ExtResource("2_c0nl8")]
+position = Vector2(7, -151)
+
+[node name="bed" parent="." instance=ExtResource("3_1dtnr")]
+position = Vector2(-117, -5)
+
+[node name="protagonist_rpg" parent="." instance=ExtResource("4_c0nl8")]
+position = Vector2(-30, -16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="protagonist_rpg"]
+libraries = {
+&"": SubResource("AnimationLibrary_c33a7")
+}

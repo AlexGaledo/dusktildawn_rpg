@@ -1,0 +1,18 @@
+~ intro
+Dusk: gosh, theres to many people in the lake today.
+Dusk: I wonder what's going on.
+(interact with the locals to figure out whats happening).
+=> END
+
+~ story
+Male A: is that a dead boy in the lake.
+female A: do anyone knows where his parents at??
+Male B: somebody call an ambulance!!
+Male A: im scared!!
+(looks like someone drowned in the lake, i wonder what happened)
+=> END
+
+
+~ done
+Dusk: I really going to be late at this point, I have to go now.
+=> END

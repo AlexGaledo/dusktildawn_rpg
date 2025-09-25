@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cx0jm3g5w25iw"
+path="res://.godot/imported/dead_body_scene.dialogue-104cbc050b6b0db1d31674b3650f53c2.tres"
+
+[deps]
+
+source_file="res://dialogue/dead_body_scene.dialogue"
+dest_files=["res://.godot/imported/dead_body_scene.dialogue-104cbc050b6b0db1d31674b3650f53c2.tres"]
+
+[params]
+
+defaults=true

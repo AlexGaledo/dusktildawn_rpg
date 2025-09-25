@@ -1,0 +1,19 @@
+~ clockevent
+clock is not working, do you want to fix it?
+- yes
+	fixing...
+- no
+	you actually need to.
+=> END
+
+~ clockeventdone
+i'm late to school, i need to go now
+=> END
+
+~ trashcan
+trashcan is full of trash.
+=> END
+
+~ angelstatue
+I dont remember having this here.
+=> END
