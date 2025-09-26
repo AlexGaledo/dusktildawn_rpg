@@ -17,8 +17,8 @@ func _on_body_exited(body: Node2D) -> void:
 	var thinking = Global.thinking
 	if body == Global.protagonist:
 		thinking.visible = false
+		can_interact = false
 		
-	
 func _input(event: InputEvent) -> void:
 	if can_interact and event.is_action_pressed("interact"):
 		interact()
