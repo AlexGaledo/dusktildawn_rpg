@@ -28,7 +28,7 @@ window/size/mode=2
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/ldtk-importer/plugin.cfg")
 
 [input]
 
