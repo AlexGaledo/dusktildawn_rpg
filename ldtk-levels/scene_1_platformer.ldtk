@@ -11,7 +11,7 @@
 	"iid": "f58068f0-8560-11f0-b5ab-1d0d7ec049d2",
 	"jsonVersion": "1.5.3",
 	"appBuildId": 473703,
-	"nextUid": 63,
+	"nextUid": 80,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": "Free",
@@ -39,7 +39,7 @@
 	"levelNamePattern": "Level_%idx",
 	"tutorialDesc": null,
 	"customCommands": [],
-	"flags": [],
+	"flags": ["IgnoreBackupSuggest"],
 	"defs": { "layers": [
 		{
 			"__type": "Tiles",
@@ -428,7 +428,53 @@
 				"averageColors": "000003519241000005519441000003319221000002219221000002219221000000000000000095326532000000000000000000004351f36100004551f65100004331f33100004221f23100004221f2210000000000000000c642964200000000000000002351e351f3622541e541f6622331e331f3412221e221f3312221e221f2213874354239a100009674666400000000000000007472f351f2417772f551f4317441f331f2217341f221f2217331f221f2212edc4764b333d542c775977500006560a44000001472f362f3621772f652f6521441f331f3411331f331f3311331f221f2212b547953b333d5424aa9557622795560a67000001472c462f3511772c662f5511441c341f3311341c331f2311331c221f2217b5388439664d6654ab94576327966894899278900002472f36200002772f65200002441f34100002341f33100002331f2217d638a539664d665367055762279789a589a38990000047284620000077286620000045183410000034183310000033182215b53a843596c75383670457632797999599939880000000000000000000000000000000000000000000000000000000000005d64ab54947837527560475295617a885a88397700000000000000000000000000000000000000000000000000000000000069548a539478757036414a853b957b775b773a66e221e221f221f321000000000000000000000000265244310000000000000000000000000000000000001322a22100000000f221f120f120f331000000003862ea838a73000046525442000000002785c442000000000000000000006332f332000000007552a3415973b973454263316973da838a73000026526542f231f3312785e44200000000000000000000e432f32100000000e331e231e331e321e331f221e331e321e321f32146524432f221f3312785c44200000000000000000000a432f22100000000f331f341e642f652e542e652e542e652d652f64226524432f331d331f342f342f34200000000000000002432d322000000009241823136527542e221e221000048647762f551f332f332f331e221e221f331f321000038cef49bf2791221a2210000000000009780f4500000e431e431000000003764b322b332e332c332f221f221e642f652000038cef49bf2796221f221000000001670e670f3304670f4502a74832200002a749321e332f321d332f221f22136527542000038cef49bf279e322f221000000001670e670f330f321f4511964932200003764b322a332e332c332f221f22145426331000038cef49bf279a322f2210000000000009780f450f321f4512a74832248647762f551f332f3320000f331f321f221f221f38af38af38af38a2322d221000000003670d551d332a332a2211754c653d332a332a221f332f3320000e542e652f221f221f38af38af38af38a1221a221000000005670f450f221f221c3222753f543f221f221c322e332f332f221f221000000000000f38af38af38af38a6221f221000000004780f450f221f221d3323653f543f221f221d332b432f432f221f221a221e2218221e344f49af27af28ae321f221000000005780f450f221f221e3224764f442f221f221e3224764f442f221f221e221f221e221f221f479f279f279a321f221000000003670d551b332d33293321753a543b332d33293324663f442f221f221a221e2218221e344f49af27af2792321d22100000000"
 			}
 		}
-	], "enums": [], "externalEnums": [], "levelFields": [] },
+	], "enums": [
+		{ "identifier": "Ground", "uid": 63, "values": [
+			{ "id": "Ground0", "tileRect": { "tilesetUid": 27, "x": 16, "y": 96, "w": 48, "h": 48 }, "color": 12470831 },
+			{ "id": "Ground1", "tileRect": { "tilesetUid": 27, "x": 16, "y": 16, "w": 48, "h": 48 }, "color": 14120515 },
+			{ "id": "Ground2", "tileRect": { "tilesetUid": 27, "x": 80, "y": 32, "w": 64, "h": 16 }, "color": 15389866 },
+			{ "id": "Ground3", "tileRect": { "tilesetUid": 27, "x": 0, "y": 336, "w": 80, "h": 32 }, "color": 14984818 },
+			{ "id": "Ground4", "tileRect": { "tilesetUid": 27, "x": 80, "y": 336, "w": 80, "h": 32 }, "color": 7552569 },
+			{ "id": "Ground5", "tileRect": { "tilesetUid": 27, "x": 160, "y": 336, "w": 80, "h": 32 }, "color": 4073265 },
+			{ "id": "Ground6", "tileRect": { "tilesetUid": 27, "x": 0, "y": 272, "w": 48, "h": 16 }, "color": 16690740 },
+			{ "id": "Ground7", "tileRect": { "tilesetUid": 27, "x": 0, "y": 176, "w": 64, "h": 48 }, "color": 16705377 },
+			{ "id": "Ground8", "tileRect": { "tilesetUid": 27, "x": 80, "y": 48, "w": 32, "h": 32 }, "color": 6539085 },
+			{ "id": "Ground9", "tileRect": { "tilesetUid": 27, "x": 112, "y": 64, "w": 16, "h": 16 }, "color": 4098376 },
+			{ "id": "Ground10", "tileRect": { "tilesetUid": 27, "x": 80, "y": 96, "w": 48, "h": 16 }, "color": 1199753 },
+			{ "id": "Ground11", "tileRect": { "tilesetUid": 27, "x": 80, "y": 144, "w": 80, "h": 16 }, "color": 39387 },
+			{ "id": "Ground12", "tileRect": { "tilesetUid": 27, "x": 160, "y": 176, "w": 80, "h": 16 }, "color": 2943221 }
+		], "iconTilesetUid": 27, "externalRelPath": null, "externalFileChecksum": null, "tags": ["Solid"] },
+		{ "identifier": "Spikes_normal", "uid": 64, "values": [{ "id": "Spikes0", "tileRect": { "tilesetUid": 36, "x": 368, "y": 48, "w": 32, "h": 16 }, "color": 12470831 }], "iconTilesetUid": 36, "externalRelPath": null, "externalFileChecksum": null, "tags": ["Hazards"] },
+		{ "identifier": "Spikes_rotate_90", "uid": 72, "values": [{ "id": "Spikes_rotate_900", "tileRect": { "tilesetUid": 40, "x": 16, "y": 368, "w": 16, "h": 32 }, "color": 12470831 }], "iconTilesetUid": 40, "externalRelPath": null, "externalFileChecksum": null, "tags": ["Hazards"] },
+		{ "identifier": "Spikes_Rotate_270", "uid": 73, "values": [{ "id": "Spikes_Rotate_2700", "tileRect": { "tilesetUid": 39, "x": 48, "y": 112, "w": 16, "h": 32 }, "color": 12470831 }], "iconTilesetUid": 39, "externalRelPath": null, "externalFileChecksum": null, "tags": ["Hazards"] },
+		{ "identifier": "Water", "uid": 74, "values": [{ "id": "Water0", "tileRect": { "tilesetUid": 27, "x": 96, "y": 304, "w": 64, "h": 32 }, "color": 290251 }], "iconTilesetUid": 27, "externalRelPath": null, "externalFileChecksum": null, "tags": ["Hazards"] },
+		{ "identifier": "Ground_rotated_90", "uid": 75, "values": [
+			{ "id": "Ground_rotated_900", "tileRect": { "tilesetUid": 43, "x": 16, "y": 336, "w": 48, "h": 48 }, "color": 12470831 },
+			{ "id": "Ground_rotated_901", "tileRect": { "tilesetUid": 43, "x": 32, "y": 256, "w": 16, "h": 64 }, "color": 14120515 },
+			{ "id": "Ground_rotated_902", "tileRect": { "tilesetUid": 43, "x": 16, "y": 272, "w": 16, "h": 32 }, "color": 15389866 },
+			{ "id": "Ground_rotated_903", "tileRect": { "tilesetUid": 43, "x": 48, "y": 288, "w": 32, "h": 32 }, "color": 14984818 },
+			{ "id": "Ground_rotated_904", "tileRect": { "tilesetUid": 43, "x": 64, "y": 272, "w": 16, "h": 16 }, "color": 7552569 },
+			{ "id": "Ground_rotated_905", "tileRect": { "tilesetUid": 43, "x": 96, "y": 272, "w": 16, "h": 48 }, "color": 4073265 },
+			{ "id": "Ground_rotated_906", "tileRect": { "tilesetUid": 43, "x": 144, "y": 240, "w": 16, "h": 80 }, "color": 16690740 },
+			{ "id": "Ground_rotated_907", "tileRect": { "tilesetUid": 43, "x": 96, "y": 336, "w": 48, "h": 48 }, "color": 16705377 },
+			{ "id": "Ground_rotated_908", "tileRect": { "tilesetUid": 43, "x": 176, "y": 336, "w": 48, "h": 64 }, "color": 6539085 },
+			{ "id": "Ground_rotated_909", "tileRect": { "tilesetUid": 43, "x": 176, "y": 160, "w": 16, "h": 80 }, "color": 4098376 },
+			{ "id": "Ground_rotated_9010", "tileRect": { "tilesetUid": 43, "x": 160, "y": 336, "w": 16, "h": 16 }, "color": 1199753 }
+		], "iconTilesetUid": 43, "externalRelPath": null, "externalFileChecksum": null, "tags": ["Solid"] },
+		{ "identifier": "Wood_spikes", "uid": 76, "values": [ { "id": "Wood_spikes0", "tileRect": { "tilesetUid": 27, "x": 336, "y": 256, "w": 16, "h": 16 }, "color": 12470831 }, { "id": "Wood_spikes1", "tileRect": { "tilesetUid": 27, "x": 352, "y": 240, "w": 16, "h": 32 }, "color": 14120515 } ], "iconTilesetUid": 27, "externalRelPath": null, "externalFileChecksum": null, "tags": ["Hazards"] },
+		{ "identifier": "Wood_Spikes_90", "uid": 77, "values": [ { "id": "Wood_Spikes_900", "tileRect": { "tilesetUid": 41, "x": 128, "y": 336, "w": 16, "h": 16 }, "color": 12470831 }, { "id": "Wood_Spikes_901", "tileRect": { "tilesetUid": 41, "x": 128, "y": 352, "w": 32, "h": 16 }, "color": 14120515 } ], "iconTilesetUid": 41, "externalRelPath": null, "externalFileChecksum": null, "tags": ["Hazards"] },
+		{ "identifier": "Wood_spikes_270", "uid": 78, "values": [ { "id": "Wood_spikes_2700", "tileRect": { "tilesetUid": 43, "x": 240, "y": 32, "w": 32, "h": 16 }, "color": 12470831 }, { "id": "Wood_spikes_2701", "tileRect": { "tilesetUid": 43, "x": 256, "y": 48, "w": 16, "h": 16 }, "color": 14120515 } ], "iconTilesetUid": 43, "externalRelPath": null, "externalFileChecksum": null, "tags": ["Hazards"] },
+		{ "identifier": "Ground_rotate_2790", "uid": 79, "values": [
+			{ "id": "Ground_rotate_2700", "tileRect": { "tilesetUid": 41, "x": 320, "y": 16, "w": 64, "h": 48 }, "color": 12470831 },
+			{ "id": "Ground_rotate_2701", "tileRect": { "tilesetUid": 41, "x": 240, "y": 16, "w": 64, "h": 48 }, "color": 14120515 },
+			{ "id": "Ground_rotate_27900", "tileRect": { "tilesetUid": 41, "x": 288, "y": 80, "w": 16, "h": 48 }, "color": 15389866 },
+			{ "id": "Ground_rotate_27901", "tileRect": { "tilesetUid": 41, "x": 240, "y": 80, "w": 16, "h": 80 }, "color": 14984818 },
+			{ "id": "Ground_rotate_27902", "tileRect": { "tilesetUid": 41, "x": 176, "y": 0, "w": 48, "h": 64 }, "color": 7552569 },
+			{ "id": "Ground_rotate_27903", "tileRect": { "tilesetUid": 41, "x": 352, "y": 80, "w": 16, "h": 64 }, "color": 4073265 },
+			{ "id": "Ground_rotate_27904", "tileRect": { "tilesetUid": 41, "x": 320, "y": 80, "w": 32, "h": 32 }, "color": 16690740 },
+			{ "id": "Ground_rotate_27905", "tileRect": { "tilesetUid": 41, "x": 208, "y": 160, "w": 16, "h": 80 }, "color": 16705377 }
+		], "iconTilesetUid": 41, "externalRelPath": null, "externalFileChecksum": null, "tags": ["Solid"] }
+	], "externalEnums": [], "levelFields": [] },
 	"levels": [
 		{
 			"identifier": "Level_0",
@@ -475,7 +521,8 @@
 					"overrideTilesetUid": null,
 					"gridTiles": [
 						{ "px": [480,192], "src": [368,48], "f": 0, "t": 119, "d": [510], "a": 1 },
-						{ "px": [496,192], "src": [384,48], "f": 0, "t": 120, "d": [511], "a": 1 }
+						{ "px": [496,192], "src": [384,48], "f": 0, "t": 120, "d": [511], "a": 1 },
+						{ "px": [496,192], "src": [0,0], "f": 0, "t": 0, "d": [511], "a": 1 }
 					],
 					"entityInstances": []
 				},
