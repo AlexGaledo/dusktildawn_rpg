@@ -2,6 +2,7 @@ extends Camera2D
 const SCREEN_SIZE := Vector2(320, 180)
 var cur_screen := Vector2(0, 0)
 var target_node: Node2D  # Store reference to the node we're following
+var current_level_bounds: Area2D = null
 
 # Smooth transition settings
 var transition_duration := 0.2  # How long the transition takes
@@ -10,19 +11,59 @@ var is_transitioning := false
 var current_tween: Tween
 
 func _ready():
-	# Store reference to parent before making top-level
-	target_node = get_parent()
-	set_as_top_level(true)
-	# Make this camera the active one
 	make_current()
-	# Calculate which screen the target is actually on
-	var parent_screen: Vector2 = (target_node.global_position / SCREEN_SIZE).floor()
-	update_screen(parent_screen, false)  # Start without transition
+	# Set target_node to the parent (protagonist)
+	target_node = get_parent()
+	print("Target node set to: ", target_node.name if target_node else "null")
 
 func _physics_process(delta):
+	# Add safety check
+	if not target_node:
+		return
+	
+	# Check if we need to update camera bounds for current level
+	update_camera_bounds_for_current_level()
+		
 	var parent_screen: Vector2 = (target_node.global_position / SCREEN_SIZE).floor()
 	if not parent_screen.is_equal_approx(cur_screen) and not is_transitioning:
 		update_screen(parent_screen, true)  # Use transition
+
+func update_camera_bounds_for_current_level():
+	var levels_node = get_tree().current_scene.get_node_or_null("levels")
+	if not levels_node:
+		return
+		
+	# Find which level the player is currently in
+	for level in levels_node.get_children():
+		var camera_area = level.get_node_or_null("camera")
+		if camera_area and camera_area.has_method("has_overlapping_bodies"):
+			# Check if player is in this level's bounds
+			var bodies = camera_area.get_overlapping_bodies()
+			for body in bodies:
+				if body == target_node:
+					# Player is in this level, update bounds if different
+					if current_level_bounds != camera_area:
+						set_bounds_for_level(camera_area)
+						current_level_bounds = camera_area
+					return
+
+func set_bounds_for_level(camera_area: Area2D):
+	var boundary_shape = camera_area.get_node_or_null("boundary")
+	if boundary_shape and boundary_shape.shape:
+		print("Updating bounds for level with camera area: ", camera_area.get_parent().name)
+		var shape = boundary_shape.shape as RectangleShape2D
+		var bounds_pos = boundary_shape.global_position
+		var bounds_size = shape.size
+		
+		print("Setting limits: Left=", int(bounds_pos.x - bounds_size.x/2), 
+			  " Right=", int(bounds_pos.x + bounds_size.x/2),
+			  " Top=", int(bounds_pos.y - bounds_size.y/2),
+			  " Bottom=", int(bounds_pos.y + bounds_size.y/2))
+		
+		set_limit(SIDE_LEFT, int(bounds_pos.x - bounds_size.x/2))
+		set_limit(SIDE_RIGHT, int(bounds_pos.x + bounds_size.x/2))
+		set_limit(SIDE_TOP, int(bounds_pos.y - bounds_size.y/2))
+		set_limit(SIDE_BOTTOM, int(bounds_pos.y + bounds_size.y/2))
 
 func update_screen(new_screen: Vector2, use_transition: bool = true):
 	cur_screen = new_screen
