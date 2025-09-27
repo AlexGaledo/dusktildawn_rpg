@@ -1,8 +1,8 @@
 extends Area2D
 
 @export var target_path: NodePath     # drag the target teleporter in the Inspector
-var target: Area2D
 
+var target: Area2D
 func _ready() -> void:
 	
 	if Global.transition == null:
@@ -13,7 +13,6 @@ func _ready() -> void:
 	color_rect.z_index = 6
 	if target_path != NodePath(""):
 		target = get_node(target_path)
-
 
 # --------- Screen Transitions ----------
 func fade_out(duration: float = 1) -> Tween:
@@ -39,7 +38,7 @@ func fade_out_in(callback: Callable, duration: float = 0.5, interval: float = 0.
 
 # --------- Teleport Handling ----------
 func _on_body_entered(body: Node2D) -> void:
-	print("collided ith something??")
+	print("collided with something??")
 	if body == Global.protagonist and target:
 		fade_out_in(Callable(self, "_teleport"))
 		
