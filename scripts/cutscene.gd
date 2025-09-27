@@ -63,11 +63,15 @@ func fourth_scene():
 	DialogueManager.show_dialogue_balloon(DEAD_BODY_SCENE,'classroomp4')
 	counter -=1
 
+const CHAPT_1_DENIAL_LABYRINTH = preload("uid://c44uf4xt5ylif")
+
 func play_last_scene():
 	Engine.time_scale = 0.3
 	chap1_scenes.play("final")
 	await chap1_scenes.animation_finished
 	Engine.time_scale = 1
+	# Safer method - waits until the current frame is done processing
+	get_tree().call_deferred("change_scene_file", CHAPT_1_DENIAL_LABYRINTH)
 	
 	
 	
