@@ -52900,9 +52900,8 @@ size = Vector2(47, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_navra"]
 size = Vector2(30.5, 45)
 
-[sub_resource type="Animation" id="Animation_luhhm"]
-resource_name = "shadow"
-length = 4.0
+[sub_resource type="Animation" id="Animation_fh13f"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -52910,10 +52909,22 @@ tracks/0/path = NodePath("classroom/cutscene2/shadow:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.76666665, 1.4, 2.0333333, 2.71),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-899, 240), Vector2(-1001, 304), Vector2(-1002, 378), Vector2(-1085, 379), Vector2(-1124, 454)]
+"values": [Vector2(-837, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("classroom/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.012617188, 0.012617188, 0.012617188, 0.28627452)]
 }
 
 [sub_resource type="Animation" id="Animation_navra"]
@@ -52943,8 +52954,9 @@ tracks/1/keys = {
 "values": [Color(0.011764706, 0.011764706, 0.011764706, 0.39607844), Color(0, 0.4117647, 0.05490196, 0.28627452), Color(0.6392157, 0.011764706, 0.011764706, 0.28627452), Color(0, 0, 0, 0.9254902)]
 }
 
-[sub_resource type="Animation" id="Animation_fh13f"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_luhhm"]
+resource_name = "shadow"
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -52952,22 +52964,10 @@ tracks/0/path = NodePath("classroom/cutscene2/shadow:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.76666665, 1.4, 2.0333333, 2.71),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-837, 324)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("classroom/ColorRect:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.012617188, 0.012617188, 0.012617188, 0.28627452)]
+"values": [Vector2(-899, 240), Vector2(-1001, 304), Vector2(-1002, 378), Vector2(-1085, 379), Vector2(-1124, 454)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_luhhm"]
