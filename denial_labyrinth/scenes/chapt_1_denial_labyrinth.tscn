@@ -1,10 +1,16 @@
-[gd_scene load_steps=68 format=3 uid="uid://c44uf4xt5ylif"]
+
+[gd_scene load_steps=35 format=3 uid="uid://c44uf4xt5ylif"]
 
 [ext_resource type="PackedScene" uid="uid://dju5hr8vbv3gi" path="res://ldtk-levels/levels/Level_0.scn" id="1_c35ne"]
 [ext_resource type="Script" uid="uid://bx6vcesdmt8ye" path="res://scripts/chapt_1_denial_labyrinth.gd" id="1_nyxbl"]
+[ext_resource type="Texture2D" uid="uid://crbuq0451ulvk" path="res://denial_labyrinth/assets/parallax-jungle/j4.png" id="2_fqbgw"]
 [ext_resource type="PackedScene" uid="uid://cpcrbsmmq1ggm" path="res://ldtk-levels/levels/Level_1.scn" id="2_gjvcu"]
 [ext_resource type="Script" uid="uid://lffuqvm7t3ki" path="res://denial_labyrinth/script/dusk_camera.gd" id="2_ptapj"]
+[ext_resource type="Script" uid="uid://ddc5tkilktme6" path="res://denial_labyrinth/script/parallax.gd" id="2_qw1b1"]
 [ext_resource type="PackedScene" uid="uid://qw1usb25a7g8" path="res://denial_labyrinth/scenes/protagonist_dusk.tscn" id="3_ptapj"]
+[ext_resource type="Texture2D" uid="uid://ctj32mf6o24hv" path="res://denial_labyrinth/assets/parallax-jungle/j3.png" id="3_qw1b1"]
+[ext_resource type="Texture2D" uid="uid://dg0vt6w38ba5o" path="res://denial_labyrinth/assets/parallax-jungle/j2.png" id="4_jsy6k"]
+[ext_resource type="Texture2D" uid="uid://dcouchlbr8cob" path="res://denial_labyrinth/assets/parallax-jungle/j1.png" id="5_sjy6u"]
 [ext_resource type="PackedScene" uid="uid://dlmmtfmtdgvjm" path="res://ldtk-levels/levels/Level_2.scn" id="5_v53la"]
 [ext_resource type="PackedScene" uid="uid://ctljo7twei8jv" path="res://ldtk-levels/levels/Level_3.scn" id="6_nyxbl"]
 [ext_resource type="PackedScene" uid="uid://c5moajxcbr8jd" path="res://ldtk-levels/levels/Level_4.scn" id="7_qfd4u"]
@@ -152,6 +158,7 @@ size = Vector2(30, 330.75)
 
 [node name="chapt1_denial_labyrinth" type="Node2D"]
 script = ExtResource("1_nyxbl")
+
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -361,37 +368,34 @@ shape = SubResource("RectangleShape2D_4388p")
 position = Vector2(1323.25, 390.5)
 shape = SubResource("RectangleShape2D_274oj")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="non-spike/StaticBody2D"]
-position = Vector2(1467, -66)
-shape = SubResource("RectangleShape2D_fqbgw")
+[node name="parallax" type="Node2D" parent="."]
+position = Vector2(2581, 46)
+script = ExtResource("2_qw1b1")
 
-[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="non-spike/StaticBody2D"]
-position = Vector2(1493, -244)
-polygon = PackedVector2Array(-12, -13, -8, 102, 134, 103, 134, 92, 129, 83, 128, 73, 135, 63, 133, 54, 127, 51, 85, 49, 80, 35, 87, 16, 85, 7, 85, -3, 84, -28, 61, -30)
+[node name="layer1" type="Parallax2D" parent="parallax"]
 
-[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="non-spike/StaticBody2D"]
-position = Vector2(1455, -331)
-polygon = PackedVector2Array(-2, 1, 42, 70, 99, 57, 96, 20, 118, 19, 123, 12, 125, -42, 121, -129, 121, -219, 353, -219, 366, -228, 358, -245, 367, -252, 360, -258, 362, -269, 352, -281, 351, -312, 364, -310, 368, -354, 381, -355, 385, -423, 566, -420, 572, -440, 613, -438, 630, -432, 635, -508, 632, -677, 698, -674, 794, -628, 918, -629, 950, -641, 1040, -639, 1039, -497, 1051, -498, 1053, -720, 592, -708, 598, -508, 329, -499, 329, -244, 45, -243)
+[node name="Sprite2D" type="Sprite2D" parent="parallax/layer1"]
+scale = Vector2(1, 0.5)
+texture = ExtResource("2_fqbgw")
 
-[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="non-spike/StaticBody2D"]
-position = Vector2(1717, -503)
-polygon = PackedVector2Array(-7, -7, -8, 0, -8, 82, 7, 92, 16, 108, 47, 105, 59, 115, 56, 131, 78, 138, 89, 121, 88, 96, 105, 85, 104, 74, 110, 67, 164, 70, 167, 55, 98, 58, 100, 12, 101, -8, 4, -8)
+[node name="layer2" type="Parallax2D" parent="parallax"]
 
-[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="non-spike/StaticBody2D"]
-position = Vector2(1994, -252)
-polygon = PackedVector2Array(0, 12, 1, 16, -30, 16, -25, -13, -28, -272, -138, -269, -143, -371, -96, -371, -36, -403, -9, -398, 17, -403, 82, -368, 83, -324, 89, -336, 127, -334, 128, -319, 183, -319, 183, -339, 177, -349, 241, -349, 237, -365, 224, -383, 280, -383, 275, -481, 256, -493, 259, -536, 148, -541, 147, -608, 193, -607, 253, -640, 375, -640, 457, -598, 452, -469, 479, -458, 472, -398, 477, -385, 456, -375, 463, -352, 442, -344, 445, -313, 462, -305, 461, -270, 553, -270, 545, -282, 553, -292, 563, -291, 563, -306, 572, -309, 577, -301, 609, -301, 614, -307, 739, -308, 742, -315, 736, -335, 747, -342, 795, -340, 802, -327, 794, -322, 801, -310, 797, -303, 875, -305, 875, -258, 862, -254, 860, -96, 833, -96, 833, -275, 569, -270, 563, -256, 366, -270, 367, -577, 287, -576, 287, -321, 288, -309, 82, -314, -1, -319)
+[node name="Sprite2D" type="Sprite2D" parent="parallax/layer2"]
+scale = Vector2(0.3, 0.2)
+texture = ExtResource("3_qw1b1")
 
-[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="non-spike/StaticBody2D"]
-position = Vector2(2608, -1029)
-polygon = PackedVector2Array(-1, -11, -4, -7, -4, 202, -84, 202, -83, 250, -100, 249, -96, 269, -100, 371, -102, 379, -87, 385, -82, 398, -38, 399, -30, 405, -37, 421, -31, 430, 41, 425, 80, 424, 91, 425, 89, 185, 56, 185, 59, 55, 187, 55, 188, 183, 159, 188, 158, 200, 149, 203, 150, 384, 163, 400, 265, 398, 267, 362, 247, 347, 247, -13)
+[node name="layer3" type="Parallax2D" parent="parallax"]
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="non-spike/StaticBody2D"]
-position = Vector2(1572, 52)
-shape = SubResource("RectangleShape2D_qw1b1")
+[node name="Sprite2D" type="Sprite2D" parent="parallax/layer3"]
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("4_jsy6k")
 
-[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="non-spike/StaticBody2D"]
-position = Vector2(2969, -597)
-polygon = PackedVector2Array(-2, -14, -13, 0, -12, 11, -12, 37, 7, 39, 7, 86, 22, 89, 24, 119, 17, 135, 37, 140, 63, 139, 66, 130, 63, 123, 66, 113, 62, 107, 65, 96, 60, 90, 64, 79, 60, 72, 59, 53, 67, 54, 76, 50, 80, 44, 76, -9, 83, -19, 74, -30, 39, -28)
+[node name="layer4" type="Parallax2D" parent="parallax"]
+
+[node name="Sprite2D" type="Sprite2D" parent="parallax/layer4"]
+scale = Vector2(0.85, 0.8)
+texture = ExtResource("5_sjy6u")
+
 
 [node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="non-spike/StaticBody2D"]
 position = Vector2(3213, -669)
@@ -431,11 +435,21 @@ polygon = PackedVector2Array(4832, -442, 4781, -441, 4779, -367, 4831, -369)
 position = Vector2(-1, 2)
 polygon = PackedVector2Array(4879, -369, 4885, -304, 4942, -303, 4943, -370)
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -665.0
+offset_top = -1299.0
+offset_right = 3143.0
+offset_bottom = 1234.0
+color = Color(0, 0, 0, 1)
+
+
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="non-spike/StaticBody2D"]
 position = Vector2(3129, -694)
 shape = SubResource("RectangleShape2D_gfv6f")
 
 [node name="platforms" type="Node2D" parent="."]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="platforms"]
 
