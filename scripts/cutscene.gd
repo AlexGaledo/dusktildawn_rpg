@@ -71,7 +71,7 @@ func play_last_scene():
 	await chap1_scenes.animation_finished
 	Engine.time_scale = 1
 	# Safer method - waits until the current frame is done processing
-	get_tree().call_deferred("change_scene_file", CHAPT_1_DENIAL_LABYRINTH)
+	get_tree().change_scene_to_file("res://denial_labyrinth/scenes/chapt_1_denial_labyrinth.tscn")
 	
 	
 	
