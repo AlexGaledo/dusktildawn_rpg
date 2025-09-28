@@ -13,7 +13,7 @@ The player’s purpose is to guide Dusk through these nights, helping him face t
 Side-scrolling navigation through surreal dream environments.
 Movement is intentionally altered per Night (e.g., heavy gravity, sinking platforms, distorted jumps) to reflect Dusk’s state of mind.
 
-2. Exploration 
+2. Labyrinth Exploration 
 Players move through labyrinth-like spaces (classrooms, corridors, flooded halls) to uncover story fragments.
 
 3. Page Collection (Memory Fragments)
@@ -44,13 +44,12 @@ Acts as narrative checkpoints that test the player’s interpretation of past Pa
 
 ## How to use
 
-1. Open in Godot
-- Launch Godot Engine.
-- In the Project Manager, click Import → Browse and select the project folder.
-- Open the project.
+1. Click Release
+- That should be on the right of the repository
+  
+2. Download the .exe file
+- Scroll down and download dusktildawn.v0.6.exe
 
-2. Run the Game
-- Press <kbd>F5</kbd> or click the Play button in Godot.
-- The game should start in the editor.
+3. Click the file to run the game
+- Enjoy~!
 
-3. Have Fun!
