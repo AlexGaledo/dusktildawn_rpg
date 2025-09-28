@@ -52994,7 +52994,7 @@ color = Color(0, 0, 0, 1)
 [node name="protagonist_rpg" parent="." instance=ExtResource("1_nnsk1")]
 position = Vector2(-4088, -75)
 
-[node name="Camera2D" type="Camera2D" parent="protagonist_rpg"]
+[node name="Camera2D2" type="Camera2D" parent="protagonist_rpg"]
 position = Vector2(-2, 3)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true

@@ -24,6 +24,7 @@ func _on_body_entered(body: Node2D) -> void:
 		dead_body_camera.make_current()
 		player.input_enabled = false
 		counter -= 1
+		player.play_town()
 		DialogueManager.show_dialogue_balloon(DEAD_BODY_SCENE,'intro')
 	
 		

@@ -6,6 +6,10 @@ const SPEED = 150.0
 @onready var mc_sprite: AnimatedSprite2D = $protagonist_rpg_sprite
 @onready var cam: Camera2D = $Camera2D
 @onready var thinking: Label = $thinking
+@onready var town_bgm: AudioStreamPlayer2D = $TownBgm
+@onready var classroom: AudioStreamPlayer2D = $Classroom
+@onready var walking: AudioStreamPlayer2D = $walking
+
 
 var last_position = '0'
 var input_enabled = true
@@ -15,7 +19,24 @@ func _ready() -> void:
 	Global.camera = cam
 	Global.thinking = thinking
 	thinking.visible = false
+	walking.play()  # starts the loop
+	walking.stream_paused = true  # immediately pause it
 	print("Global.thinking set to: ", Global.thinking)
+
+var isplaying: bool = false
+
+func play_town():
+	town_bgm.play()
+
+func play_classroom():
+	classroom.play()
+	
+func stop_classroom():
+	classroom.stop()
+
+func stop_music():
+	town_bgm.stop()
+	classroom.stop()
 
 func get_cam():
 	return cam
@@ -32,18 +53,30 @@ func flip():
 	
 func play_idle():
 	mc_sprite.play('idle')
+	
+func play_walking():
+	walking.stream_paused = false
+	
+func stop_walking():
+	walking.play()
+	walking.stream_paused = true
+
 
 func _physics_process(_delta: float) -> void:
 	if not input_enabled:
 		return
-	
-
+		
 	# --- read axes and apply deadzone (prevents tiny float noise) ---
 	var raw_x := Input.get_axis("left", "right")
 	var raw_y := Input.get_axis("up", "down")
 	var x := raw_x if abs(raw_x) > DEADZONE else 0.0
 	var y := raw_y if abs(raw_y) > DEADZONE else 0.0
 
+	if x != 0 or y != 0:
+		play_walking()
+	else:
+		stop_walking()
+		
 	# --- discrete signs (order-independent) ---
 	var sx := 0
 	if x > 0:

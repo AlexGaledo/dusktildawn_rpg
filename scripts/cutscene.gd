@@ -14,7 +14,8 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if body == Global.protagonist and counter > 2:
 		DialogueManager.connect("dialogue_ended",_on_dialogue_done)
-		
+		player = Global.protagonist
+		player.play_classroom()
 		shadow.play_idle()
 		player.input_enabled = false
 		counter -= 1
@@ -71,6 +72,8 @@ func play_last_scene():
 	await chap1_scenes.animation_finished
 	Engine.time_scale = 1
 	# Safer method - waits until the current frame is done processing
+	var player = Global.protagonist
+	player.stop_classroom()
 	get_tree().change_scene_to_file("res://denial_labyrinth/scenes/chapt_1_denial_labyrinth.tscn")
 	
 	

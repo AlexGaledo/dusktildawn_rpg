@@ -27,6 +27,19 @@ func _physics_process(delta):
 	var parent_screen: Vector2 = (target_node.global_position / SCREEN_SIZE).floor()
 	if not parent_screen.is_equal_approx(cur_screen) and not is_transitioning:
 		update_screen(parent_screen, true)  # Use transition
+	
+	# ADD THIS NEW SECTION FOR PARALLAX:
+	# Add smooth following within current screen for parallax
+	if not is_transitioning:
+		var screen_center = cur_screen * SCREEN_SIZE + SCREEN_SIZE * 0.5
+		var target_pos = target_node.global_position
+		
+		# Blend between screen center and player position
+		var follow_strength = 0.3  # Adjust this (0.0 = no follow, 1.0 = full follow)
+		var desired_pos = screen_center.lerp(target_pos, follow_strength)
+		
+		# Smoothly move camera
+		global_position = global_position.lerp(desired_pos, 8.0 * delta)
 
 func update_camera_bounds_for_current_level():
 	var levels_node = get_tree().current_scene.get_node_or_null("levels")
@@ -65,16 +78,21 @@ func set_bounds_for_level(camera_area: Area2D):
 		set_limit(SIDE_TOP, int(bounds_pos.y - bounds_size.y/2))
 		set_limit(SIDE_BOTTOM, int(bounds_pos.y + bounds_size.y/2))
 
+
+@onready var enter_new_area: AudioStreamPlayer = $"../../EnterNewArea"
+
 func update_screen(new_screen: Vector2, use_transition: bool = true):
 	cur_screen = new_screen
 	var target_pos = cur_screen * SCREEN_SIZE + SCREEN_SIZE * 0.5
 	
 	if use_transition and transition_duration > 0:
+		
 		# Stop any existing tween
 		if current_tween:
 			current_tween.kill()
 		
 		# Create smooth transition
+		enter_new_area.play()
 		current_tween = create_tween()
 		current_tween.set_ease(transition_curve)
 		current_tween.set_trans(Tween.TRANS_QUART)

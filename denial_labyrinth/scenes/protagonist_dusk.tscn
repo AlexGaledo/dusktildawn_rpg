@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://qw1usb25a7g8"]
+[gd_scene load_steps=124 format=3 uid="uid://qw1usb25a7g8"]
 
 [ext_resource type="Texture2D" uid="uid://be8jbj4bx1ij3" path="res://assets/male_assets/Idle/idle.png" id="1_j6y54"]
 [ext_resource type="Script" uid="uid://bdxr0asbg6dxf" path="res://denial_labyrinth/script/protagonist_controller.gd" id="1_rlng5"]
@@ -6,6 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://dnb4ifodhjo5i" path="res://assets/male_assets/Walk/walk.png" id="2_rlng5"]
 [ext_resource type="Texture2D" uid="uid://c0ej7h8vd1hf7" path="res://assets/male_assets/Death/death_normal.png" id="3_3x3t4"]
 [ext_resource type="Texture2D" uid="uid://3xvm1knustec" path="res://assets/male_assets/Jump - NEW/Normal/Jump.png" id="4_dvg63"]
+[ext_resource type="AudioStream" uid="uid://da11kmbg0vjdn" path="res://denial_labyrinth/SoundEffects_and_BGM/dash.mp3" id="7_nwsbw"]
+[ext_resource type="AudioStream" uid="uid://38itcwn03hgf" path="res://denial_labyrinth/SoundEffects_and_BGM/enter_new_area.mp3" id="8_e5n5e"]
+[ext_resource type="AudioStream" uid="uid://bijmmilstvpgd" path="res://denial_labyrinth/SoundEffects_and_BGM/ground_landing.mp3" id="9_3ohuq"]
+[ext_resource type="AudioStream" uid="uid://daldvasuokm5q" path="res://denial_labyrinth/SoundEffects_and_BGM/jump.mp3" id="10_3alo5"]
+[ext_resource type="AudioStream" uid="uid://b6yiu0bc40p0a" path="res://denial_labyrinth/SoundEffects_and_BGM/platformer_bgm.mp3" id="11_ip6q4"]
+[ext_resource type="AudioStream" uid="uid://diaa3rv3etevr" path="res://denial_labyrinth/SoundEffects_and_BGM/roman_cancel.mp3" id="12_qtu0p"]
+[ext_resource type="AudioStream" uid="uid://h3fsrum1f7j8" path="res://denial_labyrinth/SoundEffects_and_BGM/walking.mp3" id="13_x0j75"]
 
 [sub_resource type="Animation" id="Animation_y67vt"]
 length = 0.001
@@ -610,7 +617,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nwsbw")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 10.0
 }, {
@@ -836,7 +843,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rlng5"]
 radius = 4.0
-height = 16.0
+height = 22.0
 
 [node name="Protagonist" type="CharacterBody2D"]
 script = ExtResource("1_rlng5")
@@ -857,5 +864,28 @@ animation = &"death"
 frame_progress = 0.2539383
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -12)
+position = Vector2(1, -11)
 shape = SubResource("CapsuleShape2D_rlng5")
+
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="Dash" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("7_nwsbw")
+
+[node name="EnterNewArea" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("8_e5n5e")
+
+[node name="GroundLanding" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("9_3ohuq")
+
+[node name="Jump" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("10_3alo5")
+
+[node name="PlatformerBgm" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("11_ip6q4")
+
+[node name="RomanCancel" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("12_qtu0p")
+
+[node name="Walking" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("13_x0j75")

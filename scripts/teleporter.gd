@@ -39,11 +39,12 @@ func fade_out_in(callback: Callable, duration: float = 0.5, interval: float = 0.
 # --------- Teleport Handling ----------
 func _on_body_entered(body: Node2D) -> void:
 	print("collided with something??")
+	var player = Global.protagonist
 	if body == Global.protagonist and target:
+		player.stop_music()
 		fade_out_in(Callable(self, "_teleport"))
 		
 func _teleport() -> void:
-	
 	if not target:
 		return
 		

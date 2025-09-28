@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dqyc5obckyamf"
-path="res://.godot/imported/classroom_bgm.wav-8270175d8b0fce33c80d6716bfcad299.sample"
+path="res://.godot/imported/classroom_bgm.wav-ce6b007292fb102c9fbb3644bed94f0d.sample"
 
 [deps]
 
-source_file="res://assets/SoundEffects_and_BGM/classroom_bgm.wav"
-dest_files=["res://.godot/imported/classroom_bgm.wav-8270175d8b0fce33c80d6716bfcad299.sample"]
+source_file="res://denial_labyrinth/SoundEffects_and_BGM/classroom_bgm.wav"
+dest_files=["res://.godot/imported/classroom_bgm.wav-ce6b007292fb102c9fbb3644bed94f0d.sample"]
 
 [params]
 

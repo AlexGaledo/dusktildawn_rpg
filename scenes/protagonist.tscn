@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://bk3obgc25eth3"]
+[gd_scene load_steps=132 format=3 uid="uid://bk3obgc25eth3"]
 
 [ext_resource type="Script" uid="uid://8if3uc2xk67f" path="res://scripts/protagonist_rpg.gd" id="1_2cm76"]
 [ext_resource type="Texture2D" uid="uid://be8jbj4bx1ij3" path="res://assets/male_assets/Idle/idle.png" id="1_l65vh"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://ndlduop1n6tj" path="res://assets/male_assets/Idle/idle_right_down.png" id="7_h3lcj"]
 [ext_resource type="Texture2D" uid="uid://d0rditk2dwlaf" path="res://assets/male_assets/Idle/idle_left_up.png" id="9_0s318"]
 [ext_resource type="Texture2D" uid="uid://c2goi7enrljd4" path="res://assets/male_assets/Idle/idle_right_up.png" id="11_o8duy"]
+[ext_resource type="AudioStream" uid="uid://h3fsrum1f7j8" path="res://denial_labyrinth/SoundEffects_and_BGM/walking.mp3" id="12_0s318"]
+[ext_resource type="AudioStream" uid="uid://ceh00if6vvdr6" path="res://denial_labyrinth/SoundEffects_and_BGM/town_bgm.mp3" id="12_h3lcj"]
+[ext_resource type="AudioStream" uid="uid://dqyc5obckyamf" path="res://denial_labyrinth/SoundEffects_and_BGM/classroom_bgm.wav" id="14_o8duy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ijdgc"]
 atlas = ExtResource("1_l65vh")
@@ -913,6 +916,11 @@ _data = {
 z_index = 5
 script = ExtResource("1_2cm76")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-2, 3)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
 [node name="protagonist_rpg_sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dayud")
 animation = &"walk_up_right_idle"
@@ -937,3 +945,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_nk5ii")
 }
 autoplay = "thinking"
+
+[node name="walking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_0s318")
+
+[node name="TownBgm" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-37, 17)
+stream = ExtResource("12_h3lcj")
+volume_db = -2.985
+
+[node name="Classroom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_o8duy")

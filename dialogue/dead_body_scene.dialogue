@@ -1,3 +1,11 @@
+
+~ house
+Dusk: Its been raining like crazy these past few days.
+Dusk: yet here i'am, late for my next class.
+Dusk: lemme check what time is it.
+(press wasd to look around the room, and click f to interact with things)
+=> END
+
 ~ intro
 Dusk: gosh, theres to many people in the lake today.
 Dusk: I wonder what's going on.
@@ -5,8 +13,8 @@ Dusk: I wonder what's going on.
 => END
 
 ~ story
-Male A: is that a dead boy in the lake.
-female A: do anyone knows where his parents at??
+Male A: —There! Someone’s still out there!
+female A: Grab him! Pull him in! Hurry!
 Male B: somebody call an ambulance!!
 Male A: im scared!!
 (looks like someone drowned in the lake, i wonder what happened)
@@ -14,7 +22,7 @@ Male A: im scared!!
 
 
 ~ done
-Dusk: I really going to be late at this point, I have to go now.
+Dusk: I'm really going to be late at this point, I have to go now.
 => END
 
 
@@ -44,4 +52,17 @@ Dusk: am i dead?, is this a dream?
 Dusk: What do you want?!!!
 Dusk: don't get any closer!!
 Dusk: somebody help me!!!
+=> END
+
+
+~ denial1
+Dusk: what is this?
+Dusk: where the hell am i?
+(i have to find my way out here first)
+(use WASD to move, SPACE to jump, Q to dash)
+=> END
+
+~ denial2
+Dusk: I'm feeling kinda light
+(press g to use overclock)
 => END

@@ -1,4 +1,59 @@
 extends CharacterBody2D
+@onready var enter_new_area: AudioStreamPlayer = $sfx/EnterNewArea
+@onready var ground_landing: AudioStreamPlayer = $sfx/GroundLanding
+@onready var jump: AudioStreamPlayer = $sfx/Jump
+@onready var platformer_bgm: AudioStreamPlayer = $sfx/PlatformerBgm
+@onready var roman_cancel: AudioStreamPlayer = $sfx/RomanCancel
+@onready var walking: AudioStreamPlayer = $sfx/Walking
+@onready var dash: AudioStreamPlayer2D = $sfx/Dash
+
+
+# --- SFX functions ---
+func play_enter_new_area():
+	enter_new_area.play()
+
+func stop_enter_new_area():
+	enter_new_area.stop()
+
+func play_ground_landing():
+	ground_landing.play()
+
+func stop_ground_landing():
+	ground_landing.stop()
+
+func play_jump():
+	jump.play()
+
+func stop_jump():
+	jump.stop()
+
+func play_roman_cancel():
+	roman_cancel.play()
+
+func stop_roman_cancel():
+	roman_cancel.stop()
+
+func play_walking():
+		walking.stream_paused = false
+
+func stop_walking():
+		walking.play()
+		walking.stream_paused = true
+
+func play_dash():
+	dash.play()
+
+func stop_dash():
+	dash.stop()
+
+# --- BGM functions ---
+func play_platformer_bgm():
+	if not platformer_bgm.playing:
+		platformer_bgm.play()
+
+func stop_platformer_bgm():
+	if platformer_bgm.playing:
+		platformer_bgm.stop()
 
 # === CELESTE-STYLE MOVEMENT VARIABLES ===
 
@@ -79,9 +134,15 @@ var spring_timer = 0.0
 var spring_duration = 0.2  # How long spring force lasts
 @onready var mc_sprite: AnimatedSprite2D = $AgentAnimator/AnimatedSprite2D
 
+var input_enabled = true 
+
 func _ready() -> void:
 	get_tree().process_frame
+	mc_sprite.play('idle')
 	Global.platprog = self
+	input_enabled = true
+	play_walking()
+	walking.stream_paused = true
 	if has_node("AgentAnimator"):
 		var parent = $AgentAnimator
 		for child in parent.get_children():
@@ -91,6 +152,7 @@ func _ready() -> void:
 	if not anim:
 		push_warning("AnimatedSprite2D not found under AgentAnimator.")
 
+
 var is_dead: bool = false
 
 func play_death():
@@ -98,12 +160,26 @@ func play_death():
 		is_dead = true
 		velocity = Vector2.ZERO
 		mc_sprite.play('death')
+		
+		
+func stop_dead():
+	is_dead = false                # mark player as alive
+	input_enabled = true           # re-enable input
+	velocity = Vector2.ZERO        # stop any residual movement
+	mc_sprite.play("idle")         # reset sprite animation to idle
+
+
 
 func _physics_process(delta: float) -> void:
+	
+	if not input_enabled:
+		return
 	# Don't process movement during Roman Cancel
 	if roman_cancel_active:
 		_update_roman_cancel(delta)
 		return
+	
+	
 	
 	_update_timers(delta)
 	_update_life_system(delta)
@@ -112,11 +188,13 @@ func _physics_process(delta: float) -> void:
 	
 	# Roman Cancel input (space key)
 	if Input.is_action_just_pressed("roman_cancel") and roman_cancel_available and roman_cancel_cooldown_timer <= 0:
+		play_roman_cancel()
 		_activate_roman_cancel()
 		return
 	
 	# Handle jump buffering
 	if Input.is_action_just_pressed("jump"):
+		play_jump()
 		jump_buffer_timer = jump_buffer_time
 	
 	# Main movement logic
@@ -619,6 +697,7 @@ func _apply_spring_force(force: Vector2) -> void:
 	
 	print("Spring force applied: ", force, " New velocity: ", velocity)
 
+
 func take_damage() -> void:
 	if invincibility_timer > 0:
 		return  # Still invincible
@@ -633,3 +712,13 @@ func take_damage() -> void:
 		print("Player died!")
 		# Reset lives for respawn
 		hidden_lives = max_hidden_lives
+		
+
+func teleport_checkpoint():
+	mc_sprite.play('idle')
+	var last_pos = Global.last_checkpoint
+	if last_pos:
+		self.global_position = last_pos.global_position
+	else:
+		get_tree().reload_current_scene()
+	
